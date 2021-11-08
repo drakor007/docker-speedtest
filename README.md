@@ -1,6 +1,6 @@
 # Internet Speedtest with Docker
 
-## Modified from https://github.com/sthuber90/docker-speedtest ARM -> x86_64
+## Modified from https://github.com/sthuber90/docker-speedtest ARM -> x86_64 to run in Docker in Synology DS-920+
 
 ![docker-publish](https://github.com/sthuber90/docker-speedtest/workflows/docker-publish/badge.svg)
 
@@ -21,9 +21,9 @@ Thank you very much for the work you put in, paving the way for this project.
 
 1. `git clone git@github.com:drakor007/docker-speedtest.git`
 2. `docker-compose up -d`
-3. Open Chronograf http://localhost:8888
+3. Open Chronograf http://IP_DOCKER_SERVER:8888
 4. Import dashboard
-5. Now, you can access the dashboard under http://localhost:8888/sources/0/dashboards/1
+5. Now, you can access the dashboard under http://IP_DOCKER_SERVER:8888/sources/0/dashboards/1
 
 ### Chronograf
 Visualizes the stored data in a dashboard.
@@ -80,3 +80,11 @@ or streams taking place within your network during a test.
 
 Take note, that running the _speedtest_ container means, that you accept the Speedtest CLI's [license](docs/speedtest-license.md) 
 and [privacy regulations](docs/speedtest-privacy.md). 
+
+
+## Docker build & push to docker hub
+
+docker build -t drakor007x/speedtest .
+
+docker push drakor007x/speedtest
+
